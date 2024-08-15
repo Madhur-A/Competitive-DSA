@@ -2,30 +2,28 @@
 
 
 
-object Solution { // there is nothing functional about this solution
+object Solution {
     def combinationSum2(_nums: Array[Int], target: Int): List[List[Int]] = {
         val nums = _nums.sorted
-        val  ans = scala.collection.mutable.ListBuffer[List[Int]]()
 
-        def dfs(index: Int, curr: Int, path: List[Int]): Unit = {
-            if (curr == target) then {
-                ans += path
-                return
-            }
-            if (index >= nums.length || curr > target) then {
-                return
-            }
-
-            var i = index
-            while (i < nums.length) {
-                if (! (i > index && nums(i) == nums(i-1))) then {
-                    dfs(i + 1, curr + nums(i), path :+ nums(i))    
+        def dfs(index: Int, curr: Int, path: List[Int]): List[List[Int]] = {
+            if (curr == target) then List(path)
+            else if (index >= nums.length || curr > target) then Nil
+            else {
+                var i = index
+                var result = List[List[Int]]()
+                while (i < nums.length) {
+                    if (!(i > index && nums(i) == nums(i-1))) {
+                        result = result ::: dfs(i + 1, curr + nums(i), path ::: List(nums(i)))
+                    }
+                    i += 1
                 }
-                i += 1
+                result
             }
         }
 
         dfs(0, 0, List.empty[Int])
-        ans.toList
     }
 }
+
+
