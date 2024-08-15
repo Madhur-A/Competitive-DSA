@@ -18,7 +18,9 @@ public:
             if(visited[i] or (nums[i] == 0))  { return true;  }
             if(not visited[i]) {
                 visited[i] = true;
-                return rx(i - nums[i]) or rx(i + nums[i]);
+                if(rx(i + nums[i]) or rx(i - nums[i])) {
+                    return true;
+                }
             }
             return false;
         };
