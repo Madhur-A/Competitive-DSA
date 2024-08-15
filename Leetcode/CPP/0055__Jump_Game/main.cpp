@@ -12,9 +12,9 @@ public:
         int const n = nums.size();
         int possible = 0;
         for(int i = 0; i < n; ++i) {
-            if(possible  <   i) { return false; }
-            if(possible >= n-1) { return true;  }
+            if(possible  <   i) { return false; }            
             possible = std::max(possible, i + nums[i]);
+            if(possible >= n-1) { return true;  }
         }
         return true;
     }
