@@ -28,7 +28,27 @@ public:
         return -1;
     }
 
-    //2. DP top-down
+    //2. Using Vanilla BFS
+    int bfs_vanilla(std::vector<int> const &nums, int target) {
+        std::queue<int> t;
+        std::unordered_map<int, int> seen;
+        t.push(0);
+        seen[0] = 0;
+        while(not t.empty()) {
+            int const p = t.front(); t.pop();
+            if(p == target) { return seen[p]; }
+            for(int const &num: nums) {
+                if(p + num <= target and not seen.count(p + num)) {
+                    t.push(p + num);
+                    seen[p + num] = seen[p] + 1;
+                }
+            }
+        }
+
+        return -1;
+    }
+
+    //3. DP top-down
     int dfs(std::vector<int> &nums, int target) {
         int const inf = INT_MAX / 2;
         std::unordered_map<int, int> dp;
@@ -52,7 +72,7 @@ public:
         return rx(target);
     }
 
-    //3. DP bottom-up aka the traditional coin-change problem
+    //4. DP bottom-up aka the traditional coin-change problem
     int bottom_up(std::vector<int> const &nums, int target) {
         std::vector<int> dp(target + 1, target + 1);
         dp[0] = 0;
@@ -72,9 +92,10 @@ public:
             nums.push_back(start);
         }
 
-        return bfs_prioritized(nums, target);
-//        return bottom_up(nums, target);
-//        return dfs(nums, target);
+        // return bfs_prioritized(nums, target);
+        // return bfs_vanilla(nums, target);
+        // return dfs(nums, target);
+        return bottom_up(nums, target);
     }
 };
 
