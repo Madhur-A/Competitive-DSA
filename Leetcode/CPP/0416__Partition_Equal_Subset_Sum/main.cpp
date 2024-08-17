@@ -13,8 +13,8 @@ public:
     int dp[10001];
 public:
     bool canPartition(vector<int>& nums) {
-        int const sum =
-                std::reduce(std::execution::par_unseq, nums.begin(), nums.end(), 0, std::plus<int>());
+        int const sum = std::reduce(nums.begin(), nums.end(), 0, std::plus<int>());
+                // std::reduce(std::execution::par_unseq, nums.begin(), nums.end(), 0, std::plus<int>());
         if(sum & 1) { return false; }
         int const target = sum / 2;
         memset(dp, 0, sizeof(dp));
