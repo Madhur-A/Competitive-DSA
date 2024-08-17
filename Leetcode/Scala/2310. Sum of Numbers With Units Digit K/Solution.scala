@@ -19,24 +19,25 @@ object Solution {
         }
         return -1
     }
-    
+
+    // the aka traditional coin-change problem
     def minPossibleCountDP(nums: Array[Int], target: Int): Int = {
-        val dp = Array.fill(target + 1)(Int.MaxValue)
+        val dp = Array.fill(target + 1)(target + 1)
         dp(0) = 0
-        for (j <- 1 to target) {
-            for (num <- nums) {
-                if (j >= num && dp(j - num) != Int.MaxValue) {
-                    dp(j) = math.min(dp(j), dp(j - num) + 1)
-                }
+        nums.foldLeft(dp) { case (dp, num) =>
+            (num to target).foldLeft(dp) { case (dp, j) =>
+                dp.update(j, math.min(dp(j), dp(j - num) + 1)); dp
             }
+        }.last match {
+            case x if x > target => -1
+            case x => x
         }
-        if (dp(target) == Int.MaxValue) then -1 else dp(target)
     }
     
     def minimumNumbers(num: Int, k: Int): Int = {
         val nums = Array.iterate(k, (num - k) / 10 + 1)(x => x + 10)
 
-        // minPossibleCountDP(nums.toArray, num)
-        minPossibleCountPQ(nums.toArray, num)
+        minPossibleCountDP(nums.toArray, num)
+        // minPossibleCountPQ(nums.toArray, num)
     }
 }

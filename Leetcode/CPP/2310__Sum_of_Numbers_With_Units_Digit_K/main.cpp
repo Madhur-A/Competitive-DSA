@@ -46,25 +46,23 @@ public:
                     }
                 }
             }
-            return dp[remaining] = (res == inf) ? -1 : res;
+            return dp[remaining] = (inf <= res) ? -1 : res;
         };
 
         return rx(target);
     }
 
-    //3. DP bottom-up
+    //3. DP bottom-up aka the traditional coin-change problem
     int bottom_up(std::vector<int> const &nums, int target) {
-        std::vector<int> dp(target + 1, INT_MAX);
+        std::vector<int> dp(target + 1, target + 1);
         dp[0] = 0;
-        for(int j = 1; j < target+1; ++j) {
-            for(int const &num: nums) {
-                if(j >= num and dp[j - num] != INT_MAX) {
-                    dp[j] = std::min(dp[j], dp[j - num] + 1);
-                }
+        for(int const &num: nums) {
+            for(int j = num; j < target+1; ++j) {
+                dp[j] = std::min(dp[j], dp[j - num] + 1);
             }
         }
 
-        return (dp[target] == INT_MAX) ? -1 : dp[target];
+        return (dp[target] > target) ? -1 : dp[target];
     }
 
     int minimumNumbers(int num, int k) {
