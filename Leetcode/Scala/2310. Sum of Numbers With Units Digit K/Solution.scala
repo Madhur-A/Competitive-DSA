@@ -20,7 +20,7 @@ object Solution {
         return -1
     }
 
-    // the aka traditional coin-change problem
+    // aka the traditional coin-change problem
     def minPossibleCountDP(nums: Array[Int], target: Int): Int = {
         val dp = Array.fill(target + 1)(target + 1)
         dp(0) = 0
