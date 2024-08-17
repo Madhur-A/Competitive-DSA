@@ -9,7 +9,7 @@ using std::vector;
 
 class Solution {
 public:
-    //1. BFS Using PQ
+    //1. Using PQ
     int bfs_prioritized(std::vector<int> const &nums, int target) {
         std::priority_queue<std::pair<int, int>> t;
         std::unordered_set<int> seen;
@@ -24,6 +24,7 @@ public:
                 }
             }
         }
+
         return -1;
     }
 
@@ -62,6 +63,7 @@ public:
                 }
             }
         }
+
         return (dp[target] == INT_MAX) ? -1 : dp[target];
     }
 
