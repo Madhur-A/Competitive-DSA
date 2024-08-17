@@ -30,7 +30,7 @@ object Solution {
             }
         }.last match {
             case x if x > target => -1
-            case x => x
+            case x               =>  x
         }
     }
     
