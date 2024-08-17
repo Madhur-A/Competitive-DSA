@@ -9,7 +9,7 @@ object Solution {
 
     // using Priority Queue
     def minPossibleCountPQ(coins: Array[Int], target: Int): Int = {        
-        val (seen, t) = (Set[Long](0L), PriorityQueue[(Long, Int)]((0L, 0))(Ordering.by[(Long, Int), Long](_._2).reverse))
+        val (seen, t) = (Set[Long](0L), PriorityQueue[(Long, Int)]((0L, 0))(Ordering.by[(Long, Int), Int](_._2).reverse))
         
         while (t.nonEmpty) {
             val (sum, count) = t.dequeue()
@@ -27,7 +27,7 @@ object Solution {
 
     // vanilla BFS
     def minPossibleCountBFS(coins: Array[Int], target: Int): Int = {
-        val (seen, t) = (Map[Long, Int]((0L, 0)), Queue[Long](0L))
+        val (seen, t) = (Map[Long, Int]((0, 0)), Queue[Long](0))
 
         while (t.nonEmpty) {
             val popped = t.dequeue()
@@ -66,4 +66,3 @@ object Solution {
         minPossibleCountDP(coins, amount)
     }
 }
-

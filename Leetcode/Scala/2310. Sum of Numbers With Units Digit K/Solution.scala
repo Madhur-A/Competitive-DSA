@@ -9,7 +9,7 @@ object Solution {
 
     // using Priority Queue
     def minPossibleCountPQ(nums: Array[Int], target: Int): Int = {
-        val (t, seen) = (PriorityQueue[(Int, Int)]((0, 0))(Ordering.by[(Int, Int), Int](_._1).reverse), Set[Int]())
+        val (seen, t) = (Set[Int](), PriorityQueue[(Int, Int)]((0, 0))(Ordering.by[(Int, Int), Int](_._1).reverse))
 
         while (t.nonEmpty) {
             val (sum, count) = t.dequeue()
