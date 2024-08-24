@@ -35,20 +35,21 @@ public:
     }
 
     long select(long const &num, int const &offset) {
-        if(num <= 16) { return num + offset; }
-        int const len = std::floor(std::log10(num)) + 1;
-        int const mid = len >> 1;
+        if(num > 17) {
+            int const len = std::floor(std::log10(num)) + 1;
+            int const mid = len >> 1;
 
-        long const div = power(mid);
-        long const res = (num / div) + offset;
+            long const div = power(mid);
+            long const res = (num / div) + offset;
 
-        return res * power(mid) + ((len & 1) ? rv_num(res / 10) : rv_num(res));
+            return res * power(mid) + ((len & 1) ? rv_num(res / 10) : rv_num(res));
+        }
+        return num + offset;
     }
 
     string nearestPalindromic(string s) {
-        int const n = s.length();
-        if(n == 1) { return std::string(1, (s[0] - '0' - 1) + '0'); }
         long const number = as_num(s);
+
         t.push({0, number - 1});
         t.push({0, number + 1});
 
@@ -70,3 +71,11 @@ public:
         return "-1";
     }
 };
+
+int main() {
+    Solution sol;
+    std::string num = "123";
+    std::fprintf(stdout, "%s\n", sol.nearestPalindromic(num).c_str());
+
+    return 0;
+}
