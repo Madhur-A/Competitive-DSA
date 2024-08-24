@@ -5,7 +5,7 @@ A collection of programming solutions for various coding problems from different
 ## Repository Structure
 
 * **[Website Name]** (e.g., LeetCode etc.)
-	+ **[Language]** (e.g., C++, Scala, etc.)
+	+ **[Language]** (e.g., C++, Scala, Java, etc.)
 		- **[Problem Name]** (e.g., Two Sum, Maximum Subarray, etc.)
 
 ## Platforms
@@ -16,6 +16,7 @@ A collection of programming solutions for various coding problems from different
 
 * C++
 * Scala
+* Java
 
 ## License
 
