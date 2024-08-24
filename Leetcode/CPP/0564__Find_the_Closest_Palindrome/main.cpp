@@ -42,7 +42,7 @@ public:
             long const div = power(mid);
             long const res = (num / div) + offset;
 
-            return res * power(mid) + ((len & 1) ? rv_num(res / 10) : rv_num(res));
+            return res * div + ((len & 1) ? rv_num(res / 10) : rv_num(res));
         }
         return num + offset;
     }
