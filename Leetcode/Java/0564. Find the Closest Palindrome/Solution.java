@@ -18,12 +18,7 @@ public class Solution {
 	}
 
 	public boolean isPalindrome(long number) {
-		long res = 0, curr = number;
-		while(curr > 0) {
-			res = 10 * res + (curr % 10);
-			curr = curr / 10;
-		}
-		return res == number;
+		return number == reverseNumber(number);
 	}
 
 	public long power(long count, long res) { return (count <= 0) ? res : power(count - 1, res * 10L); }
