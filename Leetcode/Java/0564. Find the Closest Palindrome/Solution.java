@@ -21,7 +21,9 @@ public class Solution {
 		return number == reverseNumber(number);
 	}
 
-	public long power(long count, long res) { return (count <= 0) ? res : power(count - 1, res * 10L); }
+	public long power(long count, long res) {
+		return (count <= 0) ? res : power(count - 1, res * 10L);
+	}
 
 	public long reverseNumber(long number) {
 		long res = 0L, curr = number;
