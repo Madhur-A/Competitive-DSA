@@ -14,16 +14,16 @@ public class Solution {
 	}
 
 	public long getKthPalindrome(int len, long k) {
-        int mid = (len >> 1) - (((len & 1) == 1) ? 0 : 1);
-        final long left = power(mid, 1L), right = power(mid + 1, 1L);
-        final long base = ((len & 1) == 1) ? left : right;
-        final long sffx = ((len & 1) == 1) ? 10L  : 1L;
-        long res = -1L;
-        if(k <= right - left) {
-            long num = left + k - 1;
-            res = num * base + reverseNumber(num / sffx);
-        }
-        return res;
+		int mid = (len >> 1) - (((len & 1) == 1) ? 0 : 1);
+		final long left = power(mid, 1L), right = power(mid + 1, 1L);
+		final long base = ((len & 1) == 1) ? left : right;
+		final long sffx = ((len & 1) == 1) ? 10L  : 1L;
+		long res = -1L;
+		if(k <= right - left) {
+			long num = left + k - 1;
+			res = num * base + reverseNumber(num / sffx);
+		}
+		return res;
 	}
 
     public long[] kthPalindrome(int[] queries, int intLength) {
