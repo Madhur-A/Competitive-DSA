@@ -8,8 +8,9 @@ import java.util.List;
 import java.util.TreeMap;
 
 public class Solution {
-	public List<List<Long>> splitPainting(int[][] segments) {
+	public static List<List<Long>> splitPainting(int[][] segments) {
 		TreeMap<Integer, Long> seen = new TreeMap<>();
+		
 		for(int[] segment: segments) {
 			final int start = segment[0], end = segment[1];
 			final long value = segment[2];
