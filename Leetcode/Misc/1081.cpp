@@ -2,13 +2,7 @@
 
 
 
-#include <bits/stdc++.h>
-#include <definitions>
-
 int _ = [](){ std::ios_base::sync_with_stdio(false); std::cin.tie(nullptr); return 0; }();
-
-using std::string;
-using namespace av;
 
 class Solution {
 public:
@@ -32,8 +26,3 @@ public:
 		return ans;
 	}
 };
-
-int main() {
-	std::cout << Solution::smallestSubsequence("bcabc") << '\n';
-	std::cout << Solution::smallestSubsequence("cbacdcbc") << '\n';	
-}
