@@ -15,7 +15,7 @@ public:
 		for(int i = 0; i < n; ++i) { indices[s[i] - 'a'] = i; }
 		for(int j = 0; j < n; ++j) {
 			if(seen[s[j] - 'a']) { continue; }
-			// pop if what we have is greater than what is available and if it isn't the last
+			// pop if what we have is greater than what is available and if it isn't the last of its kind
 			while(not ans.empty() and ans.back() > s[j] and j < indices[ans.back() - 'a']) {
 				seen[ans.back() - 'a'] = 0;
 				ans.pop_back();
