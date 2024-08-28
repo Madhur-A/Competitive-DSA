@@ -12,10 +12,11 @@ public:
 		
 		std::vector<int> indices(26), seen(26);
 
-		for(int i = 0; i < n; ++i) { indices[i] = s[i] - 'a'; }
+		for(int i = 0; i < n; ++i) { indices[s[i] - 'a'] = i; }
 		for(int j = 0; j < n; ++j) {
 			if(seen[s[j] - 'a']) { continue; }
-			while(not ans.empty() and ans.back() > s[j] and j > indices[s[j] - 'a']) {
+			// pop if what we have is greater than what is available and if it isn't the last
+			while(not ans.empty() and ans.back() > s[j] and j < indices[ans.back() - 'a']) {
 				seen[ans.back() - 'a'] = 0;
 				ans.pop_back();
 			}
