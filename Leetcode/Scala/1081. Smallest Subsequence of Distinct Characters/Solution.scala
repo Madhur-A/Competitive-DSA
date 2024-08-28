@@ -16,9 +16,8 @@ object Solution {
                 }
                 seen.add(element)
                 res.addOne(element)
-            }; (res, seen, index + 1)
+            }
+            (res, seen, index + 1)
         }.head.mkString
     }
-
-    def response: String = smallestSubsequence("bcabc")
 }
