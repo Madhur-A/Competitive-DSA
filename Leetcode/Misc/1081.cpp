@@ -2,34 +2,38 @@
 
 
 
+#include <bits/stdc++.h>
+#include <defines>
+
 int _ = [](){ std::ios_base::sync_with_stdio(false); std::cin.tie(nullptr); return 0; }();
+
+using std::string;
+using namespace av;
 
 class Solution {
 public:
-    std::string ans;
-public:
-    string smallestSubsequence(string s) {
-        int const n = s.length();
-        std::vector<int> last_indices(26), seen(26);
+    inline static string smallestSubsequence(string s) {
+		int const n = s.length();
+		std::string ans;
+		
+		std::vector<int> indices(26), seen(26);
 
-		for(int i = 0; i < n; ++i) {
-			last_indices[s[i] - 'a'] = i;
-		}
-
-		for(int i = 0; i < n; ++i) {
-            char const c = s[i];
-            if(not seen[c - 'a']) {
-				while(not ans.empty() and c < ans.back() and i < last_indices[ans.back()-'a']) {
-					seen[ans.back() - 'a'] = 0;
-					ans.pop_back();
-				}
-				ans.push_back(c);
-				seen[c - 'a'] = 1;
+		for(int i = 0; i < n; ++i) { indices[i] = s[i] - 'a'; }
+		for(int j = 0; j < n; ++j) {
+			if(seen[s[j] - 'a']) { continue; }
+			while(not ans.empty() and ans.back() > s[j] and j > indices[s[j] - 'a']) {
+				seen[ans.back() - 'a'] = 0;
+				ans.pop_back();
 			}
-        }
-        return ans;
-    }
+			ans.push_back(s[j]);
+			seen[s[j] - 'a'] = 1;
+		}
+		
+		return ans;
+	}
 };
 
-
-
+int main() {
+	std::cout << Solution::smallestSubsequence("bcabc") << '\n';
+	std::cout << Solution::smallestSubsequence("cbacdcbc") << '\n';	
+}
