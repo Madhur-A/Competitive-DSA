@@ -2,10 +2,6 @@
 
 
 
-#include <ranges>
-
-int _ = [](){ std::ios_base::sync_with_stdio(false); std::cin.tie(nullptr); return 0; }();
-
 struct merge_find {
 private:
 	std::vector<int> roots, depths;
@@ -24,10 +20,9 @@ public:
 			int const u_depth = depths[u_root], v_depth = depths[v_root];
 			if(u_depth < v_depth) {
 				roots[u_root] = v_root;
-				depths[v_root] += depths[u_root];
 			} else {
 				roots[v_root] = u_root;
-				depths[u_root] += depths[v_root];
+				depths[u_root] += 1;
 			}			
 		}
 	}
@@ -41,6 +36,7 @@ public:
 	}
 };
 
+#include <ranges>
 
 class Solution {
 public:
