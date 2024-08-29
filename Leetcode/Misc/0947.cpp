@@ -2,14 +2,9 @@
 
 
 
-#include <bits/stdc++.h>
 #include <ranges>
-#include <defines>
 
 int _ = [](){ std::ios_base::sync_with_stdio(false); std::cin.tie(nullptr); return 0; }();
-
-using std::vector;
-using namespace av;
 
 struct merge_find {
 private:
@@ -36,6 +31,14 @@ public:
 			}			
 		}
 	}
+
+	inline int count_unique_parents(vector<vector<int>>& stones) {
+		std::unordered_set<int> seen;
+		for(std::vector<int> const &stone: stones) {
+			seen.insert(this->find(stone[0]));
+		}
+		return stones.size() - seen.size();
+	}
 };
 
 
@@ -43,31 +46,14 @@ class Solution {
 public:
     inline static
 	int removeStones(vector<vector<int>>& stones) {
-		int const n = stones.size(), m = std::ranges::max(stones | std::views::join);
-		// println("max found element is", m);
+		int const m = std::ranges::max(stones | std::views::join);
 		merge_find ufo(m + m + 1);
 		std::unordered_set<int> seen;
 		for(std::vector<int> const &stone: stones) {
 			ufo.merge(stone[0], stone[1] + m + 1);
 		}
-
-		for(std::vector<int> const &stone: stones) {
-			seen.insert(ufo.find(stone[0]));
-		}
 		
-		return n - seen.size();
+		return ufo.count_unique_parents(stones);
     }	
 };
 
-int main() {
-	std::vector<std::vector<int>> stones1 = {{0,0},{0,1},{1,0},{1,2},{2,1},{2,2}};
-	std::vector<std::vector<int>> stones2 = {{0,0},{0,2},{1,1},{2,0},{2,2}};
-	std::vector<std::vector<int>> stones3 = {{0,0}};
-	
-	av::println(Solution::removeStones(stones1));
-	av::println(Solution::removeStones(stones2));
-	av::println(Solution::removeStones(stones3));
-
-
-	return 0;
-}
