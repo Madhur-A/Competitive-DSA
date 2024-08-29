@@ -48,7 +48,7 @@ public:
 	int removeStones(vector<vector<int>>& stones) {
 		int const m = std::ranges::max(stones | std::views::join);
 		merge_find ufo(m + m + 1);
-		std::unordered_set<int> seen;
+
 		for(std::vector<int> const &stone: stones) {
 			ufo.merge(stone[0], stone[1] + m + 1);
 		}
