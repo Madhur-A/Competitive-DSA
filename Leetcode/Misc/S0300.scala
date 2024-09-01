@@ -8,7 +8,7 @@ object Solution {
             var innerMax = 0
             dp.take(index).indices.foreach { j =>
                 if (nums(j) < nums(index)) {
-                    innerMax = Math.max(innerMax, Math.max(dp(index), dp(j) + 1))
+                    innerMax = Math.max(innerMax, dp(j) + 1)
                 }
             }
             dp.update(index, Math.max(dp(index), innerMax)); dp
