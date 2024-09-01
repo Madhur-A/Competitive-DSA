@@ -10,3 +10,12 @@ object Solution {
         }
     }
 }
+
+// or
+
+object Solution {
+    def construct2DArray(original: Array[Int], m: Int, n: Int): Array[Array[Int]] = {
+        if (m * n != original.length) Array.empty else original.grouped(n).toArray
+    }
+}
+
