@@ -18,6 +18,4 @@ A collection of programming solutions for various coding problems from different
 * Scala
 * Java
 
-## License
 
-This repository is licensed under [The Unlicense](http://unlicense.org/). See [LICENSE](LICENSE) for details.
