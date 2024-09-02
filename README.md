@@ -18,6 +18,6 @@ A collection of programming solutions for various coding problems from different
 * Scala
 * Java
 
-## License:
+## License
 
 [GPL-3.0 License](LICENSE)
