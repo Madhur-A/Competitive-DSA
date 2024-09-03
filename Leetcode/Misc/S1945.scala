@@ -22,12 +22,21 @@ object Solution {
 }
 
 
-// using auxiliary functions [!] Not working
+// using two auxiliaries
 
 object Solution {
-    def asSumOfDigits(res: Int, digits: Int): Int = (digits + res).toString.map(_ - '0').sum
+    def asSumOfDigits(res: Int, times: Int): Int = res.toString.map(_ - '0').sum
     def getLucky(s: String, k: Int): Int = {
         val inDigits = (c: Char) => Seq((c - 'a' + 1) / 10, (c - 'a' + 1) % 10)
         (1 until k).foldLeft(s.flatMap(inDigits).sum)(asSumOfDigits)
     }
 }
+
+// using only auxiliaries
+
+object Solution {
+    def asSumOfDigits(res: Int, times: Int): Int = res.toString.map(_ - '0').sum
+    def inDigits(inputChar: Char): Seq[Int] = Seq((inputChar - 'a' + 1) / 10, (inputChar - 'a' + 1) % 10)
+    def getLucky(s: String, k: Int): Int = (1 until k).foldLeft(s.flatMap(inDigits).sum)(asSumOfDigits)
+}
+
