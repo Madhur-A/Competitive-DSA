@@ -9,7 +9,10 @@
  * };
  */
 
-// no compromise on recursion though, (lol!)
+// oh valiant hero!
+// from this step  loops are forbidden...
+
+// not sure about the "valiant hero" taxonomy, but
 
 class Solution {
 public:
@@ -31,9 +34,8 @@ public:
 
     ListNode* modifiedList(vector<int>& nums, ListNode* head) {
         seen.insert(nums.begin(), nums.end());
-        ListNode* contingent = new ListNode(INT_MAX);
-        contingent->next = find(head);
-        rx(contingent->next);
-        return contingent->next;
+        ListNode* contingent = new ListNode(INT_MAX, find(head));
+
+        return rx(contingent->next); // and i guess, this should do.
     }
 };
