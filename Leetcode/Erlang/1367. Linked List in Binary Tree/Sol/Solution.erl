@@ -1,4 +1,4 @@
--module(sol).
+-module(Solution).
 
 %% Definition for singly-linked list.
 %%
