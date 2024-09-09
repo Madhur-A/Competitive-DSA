@@ -1,4 +1,4 @@
--module(solution).
+-compile(export_all). % testing phase directive
 
 %% Definition for singly-linked list.
 %%
