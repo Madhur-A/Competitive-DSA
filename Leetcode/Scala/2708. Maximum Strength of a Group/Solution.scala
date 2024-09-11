@@ -2,6 +2,8 @@
 
 
 
+// using indexing
+
 object Solution {
     def maxStrength(nums: Array[Int]): Long = {
         def rx(curr: Long, index: Int): Long = {
@@ -20,3 +22,18 @@ object Solution {
     }
 }
 
+// without using indexing (see the Erlang solution for a pattern-matching approach),
+// the one given below also does it; however, it is not as explicit as in Erlang.
+
+object Solution {
+    def maxStrength(nums: Array[Int]): Long = {
+        def rx(numbers: List[Int], res: Long): Long = {
+            if (numbers.isEmpty) { res
+            } else {
+                math.max(rx(numbers.tail, numbers.head * res),                    
+                    math.max(rx(numbers.tail, numbers.head),rx(numbers.tail, res)))
+            }
+        }
+        if (nums.tail.isEmpty) nums.head else rx(nums.toList, 0L)
+    }
+}
