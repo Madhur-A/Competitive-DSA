@@ -24,6 +24,8 @@ object Solution {
 
 // without using indexing (see the Erlang solution for a pattern-matching approach),
 // the one given below also does it; however, it is not as explicit as in Erlang.
+// on a side note; i could've used `match case` construct to enforce the functional
+// pattern matching, but that wouldn't have felt right (yes i'm biased, sorry!) to me.
 
 object Solution {
     def maxStrength(nums: Array[Int]): Long = {
@@ -31,7 +33,7 @@ object Solution {
             if (numbers.isEmpty) { res
             } else {
                 math.max(rx(numbers.tail, numbers.head * res),                    
-                    math.max(rx(numbers.tail, numbers.head),rx(numbers.tail, res)))
+                    math.max(rx(numbers.tail, numbers.head), rx(numbers.tail, res)))
             }
         }
         if (nums.tail.isEmpty) nums.head else rx(nums.toList, 0L)
