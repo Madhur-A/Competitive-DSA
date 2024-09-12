@@ -4,11 +4,13 @@
 
 import scala.util.control.Breaks._
 
-// there're problems which designed for a very specific type of solution;
+// there're problems which are designed for a very specific type of solution;
 // i'm really not a fan of such problems.
 
 // such problems hinge on edge cases created by eccentric features of 
 // a specific language and are devoid of any logic; this is one such problem
+
+// or maybe i'm too dumb to grasp the intricacies of such complex puzzle.
 
 object Solution {
     def recoverArray(nums: Array[Int]): Array[Int] = {
