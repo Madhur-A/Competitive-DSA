@@ -1,5 +1,5 @@
 -define(Dirs, [[0,1],[1,0],[0,-1],[-1,0]]).
--module(sol_tle). % but it's true blue pure functional, referentially transparent program! alas, its TLE!
+-module(sol_tle). % but it is a true blue pure functional, referentially transparent program! alas, it is TLE!
 -compile(export_all). % testing phase directive
 
 
