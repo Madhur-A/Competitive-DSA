@@ -1,5 +1,5 @@
 %% -module(sol).
--compile(export_all). % testng phase directive
+-compile(export_all). % testing phase directive
 
 
 %% -spec xor_queries(Arr :: [integer()], Queries :: [[integer()]]) -> [integer()].
