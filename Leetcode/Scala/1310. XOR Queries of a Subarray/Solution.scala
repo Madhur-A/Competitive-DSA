@@ -8,9 +8,10 @@
 
 object Solution {
     def xorQueries(nums: Array[Int], queries: Array[Array[Int]]): Array[Int] = {
-        queries.foldLeft((List[Int](), nums.scanLeft(0)(_ ^ _))) { case ((res, pfx), index) =>
-            (res ++ List(pfx(index.head) ^ pfx(index.last + 1)), pfx)
-        }.head.toArray
+        val (res, prefixXors) = (Array.fill(queries.length)(0), nums.scanLeft(0)(_ ^ _))
+        queries.foldLeft((res, 0)) { case ((res, i), indices) =>
+            res.update(i, prefixXors(indices.head) ^ prefixXors(indices.last + 1)); (res, i + 1)
+        }.head
     }
 }
 
