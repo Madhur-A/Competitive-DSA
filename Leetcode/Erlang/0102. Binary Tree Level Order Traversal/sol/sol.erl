@@ -24,6 +24,7 @@ lrx(   [], Res) -> Res;
 lrx(Roots, Res) ->
 	lrx(lists:flatten(get_all_children(Roots)), Res ++ [[get_value(Root) || Root <- Roots, Root =/= null]]).
 
+level_order(null) -> [];
 level_order(Root) -> lrx([Root], []).
 
 clear() ->
