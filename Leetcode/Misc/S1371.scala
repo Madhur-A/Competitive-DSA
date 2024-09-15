@@ -14,7 +14,7 @@ object Solution {
                 case  j => state ^ (1 << j)
             }
             val newRes = math.max(res, index - positions(newState))
-            positions(newState) = math.min(positions(newState), index)
+            positions.update(newState, math.min(positions(newState), index))
             (newRes, newState)
         }.head
     }
