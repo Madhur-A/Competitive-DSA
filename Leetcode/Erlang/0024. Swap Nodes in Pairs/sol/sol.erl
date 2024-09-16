@@ -2,7 +2,7 @@
 -compile(export_all). % testing phase directive
 
 
--%% "Ooarai Joshigakuin Shori!"
+%% "Ooarai Joshigakuin Shori!"
 
 %% -record(list_node, {val = 0 :: integer(), next = null :: 'null' | #list_node{}}).
 
