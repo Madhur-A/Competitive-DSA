@@ -17,7 +17,7 @@ object Solution {
     
     def findMinDifference(timePoints: List[String]): Int = {
         if (timePoints.length <= 1440) {
-            val listOfTimes = timePoints.map(parse).toList.sorted
+            val listOfTimes = timePoints.map(parse).sorted
             getRes(listOfTimes.appended(listOfTimes.head + 1440))
         } else { 0 }
     }
