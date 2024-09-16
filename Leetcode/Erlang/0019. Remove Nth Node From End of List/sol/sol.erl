@@ -1,6 +1,6 @@
 %% -module(sol).
 -compile(export_all). % testing phase directive
--author("Miho Nishizumi"). % "Ooarai Joshigakuin Shori!"
+%% "Ooarai Joshigakuin Shori!"
 
 -spec remove_nth_from_end(Head :: #list_node{} | null, N :: integer()) -> #list_node{} | null.
 
