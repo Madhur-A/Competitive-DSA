@@ -20,8 +20,8 @@ object SolutionMLE {
 
     def maxProbability(n: Int, edges: Array[Array[Int]], weights: Array[Double], start_node: Int, end_node: Int): Double = {
         val g = edges.foldLeft((0, Map[Int, List[(Double, Int)]]())) { case ((index, g), Array(source, dest)) =>
-            val t = g.updated(source, g.getOrElse(source, List[(Double, Int)]()) :+ (weights(index), dest))
-            (index + 1, t.updated(dest, t.getOrElse(dest, List[(Double, Int)]()) :+ (weights(index), source)))
+            val t = g.updated(source, (weights(index), dest) :: g.getOrElse(source, List[(Double, Int)]()))
+            (index + 1, t.updated(dest, (weights(index), source)) :: t.getOrElse(dest, List[(Double, Int)]()))
         }.last
         dijkstra(end_node, Map[Int, Double](start_node -> 1.0), Set[(Double, Int)]((1.0, start_node)), g)
     }
