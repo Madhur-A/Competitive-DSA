@@ -57,12 +57,14 @@ void merge_sort(int* nums, int length) {
 char* largestNumber(int* nums, int n) {
 	merge_sort(nums, n);
 	memset(number, 0, sizeof(number));
+	int last = 0;
 	for(int i = 0, k = 0; i < n; ++i) {
 		sprintf(num_string, "%d", nums[i]);
 		for(unsigned long j = 0; j < strlen(num_string); ++j) {
-			number[k++] = num_string[j];
+			number[k++] = num_string[j]; last++;
 		}
 	}
-    
+	number[last] = '\0';
+
     return number[0] == '0' ? "0" : number; //"Ooarai Joshigakuin Shori!"
 }
