@@ -9,7 +9,7 @@ as_string([First|Rest]) ->
 	integer_to_list(First) ++ as_string(Rest).
 
 %% integer to string
-its(A) -> integer_to_list(A).	
+its(A) -> integer_to_list(A).
 
 get_largest(Nums) ->
 	Res = as_string(lists:sort(fun(A, B) -> its(A) ++ its(B) > its(B) ++ its(A) end, Nums)),
