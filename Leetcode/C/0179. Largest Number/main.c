@@ -59,7 +59,6 @@ char* largestNumber(int* nums, int n) {
 	memset(number, 0, sizeof(number));
 	int k = 0;
 	for(int i = 0; i < n; ++i) {
-		memset(num_string, 0, sizeof(num_string));
 		sprintf(num_string, "%d", nums[i]);
 		for(unsigned long j = 0; j < strlen(num_string); ++j) {
 			number[k++] = num_string[j];
