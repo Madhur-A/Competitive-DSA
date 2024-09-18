@@ -13,8 +13,9 @@ char num_string[100];
 int length(int num) { return floor(log(num)/log(10)) + 1; }
 
 int cmp(int a, int b) {
-	int p = a * pow(10, length(b) + 1) + b;
-	int q = b * pow(10, length(a) + 1) + a;
+	long long p = a * pow(10, length(b) + 1) + b;
+	long long q = b * pow(10, length(a) + 1) + a;
+	fprintf(stdout, "[%lld] and [%lld]\n", p, q);
 	return (p == q) ? 0 : (p < q) ? 1 : -1;
 }
 
@@ -63,12 +64,12 @@ char* largestNumber(int* nums, int n) {
 		}
 	}
     
-	return number; //"Ooarai Joshigakuin Shori!"
+	return number;
 }
 
 int main() {
-	int n = 5;
-	int nums[] = {3,30,35,5,9}; 
+	int n = 2;
+	int nums[] = {111311, 1113};
 	fprintf(stdout, "ans: [%s]\n", largestNumber(nums, n));
 
 	return 0;
