@@ -64,7 +64,7 @@ char* largestNumber(int* nums, int n) {
 		}
 	}
     
-	return number;
+	return number; // "Ooarai Joshigakuin Shori!"
 }
 
 int main() {
