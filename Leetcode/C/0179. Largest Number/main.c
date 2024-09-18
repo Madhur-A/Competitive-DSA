@@ -53,7 +53,9 @@ void merge_sort(int* nums, int length) {
     for (int i = 0; i < length; i++) { nums[i] = temp[i]; }
     free(temp);
 }
-#include "defines.h"
+
+
+
 char* largestNumber(int* nums, int n) {
 	merge_sort(nums, n);
 	memset(number, 0, sizeof(number));
@@ -66,8 +68,14 @@ char* largestNumber(int* nums, int n) {
 		}
 	}
 	number[k] = '\0';
-    
-	return number; //"Ooarai Joshigakuin Shori!"
+	
+	for(int i = 0; i < k; ++i) {
+		if(number[i] != '0') {
+			return number; //"Ooarai Joshigakuin Shori!"
+		}
+	}
+	
+	return "0";
 }
 
 ///////////////////////////////////////
