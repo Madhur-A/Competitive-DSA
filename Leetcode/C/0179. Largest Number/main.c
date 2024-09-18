@@ -68,5 +68,5 @@ char* largestNumber(int* nums, int n) {
 	}
 	number[last] = '\0';
 
-    return number[0] == '0' ? "0" : number; //"Ooarai Joshigakuin Shori!"
+	return number[0] == '0' ? "0" : number; //"Ooarai Joshigakuin Shori!"
 }
