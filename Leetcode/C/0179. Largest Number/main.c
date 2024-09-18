@@ -65,13 +65,6 @@ char* largestNumber(int* nums, int n) {
 			number[k++] = num_string[j];
 		}
 	}
-	number[k] = '\0';
-	
-	for(int i = 0; i < k; ++i) {
-		if(number[i] != '0') {
-			return number; //"Ooarai Joshigakuin Shori!"
-		}
-	}
-	
-	return "0";
+    
+    return number[0] == '0' ? "0" : number; //"Ooarai Joshigakuin Shori!"
 }
