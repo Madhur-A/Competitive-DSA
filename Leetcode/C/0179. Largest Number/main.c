@@ -40,17 +40,19 @@ void merge(int* prefix, int prefix_count, int* suffix, int suffix_count, int* re
 
 void merge_sort(int* nums, int length) {
     if(length <= 1) { return; }
+    int mid = length >> 2;
 
-    int mid = length / 2;
-    int* left = nums, *right = nums + mid;
+    int* left = nums;
+	int *right = nums + mid;
 
     merge_sort(left, mid);
-    merge_sort(right, length - mid);
+	merge_sort(right, length - mid);
 
     int* temp = (int*)malloc(length * sizeof(int));
     merge(left, mid, right, length - mid, temp);
 
-    for (int i = 0; i < length; i++) { nums[i] = temp[i]; }
+    for(int i = 0; i < length; nums[i] = temp[i], i++);
+
     free(temp);
 }
 
