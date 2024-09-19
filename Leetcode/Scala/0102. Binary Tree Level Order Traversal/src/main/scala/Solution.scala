@@ -2,8 +2,6 @@
 
 
 
-case class TreeNode(val x: Int = 0, val left: TreeNode = null, val right: TreeNode = null)
-
 object Solution {
     def getNodes(node: TreeNode): List[TreeNode] = {
         if (node.left == null && node.right == null) {
