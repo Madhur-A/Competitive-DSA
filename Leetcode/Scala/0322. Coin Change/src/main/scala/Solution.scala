@@ -8,9 +8,9 @@ object Solution {
     // all methods given below solve the coin-change problem
 
     // using Priority Queue
-    def minPossibleCountPQ(coins: Array[Int], target: Int): Int = {        
+    def minPossibleCountPQ(coins: Array[Int], target: Int): Int = {
         val (seen, t) = (Set[Long](0L), PriorityQueue[(Long, Int)]((0L, 0))(Ordering.by[(Long, Int), Int](_._2).reverse))
-        
+
         while (t.nonEmpty) {
             val (sum, count) = t.dequeue()
             if (sum == target) { return count }
@@ -37,14 +37,13 @@ object Solution {
                         seen(coin + popped) = seen.getOrElse(popped, 0) + 1
                         t.enqueue(coin + popped)
                     }
-                } 
+                }
                 (found, seen, t)
             }
         }
 
         seen.getOrElse(target, -1)
     }
-
 
     // the traditional coin-change solution (bottom-up DP)
     def minPossibleCountDP(coins: Array[Int], target: Int): Int = {

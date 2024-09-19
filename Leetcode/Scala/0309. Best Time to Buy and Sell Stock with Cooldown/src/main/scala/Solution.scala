@@ -9,4 +9,3 @@ object Solution {
         }.head
     }
 }
-
