@@ -9,7 +9,7 @@ object Solution {
                 val newRes = maxSoFar >= Math.min(index, nums.length - 1)
                 (newRes, index + 1, Math.max(maxSoFar, index + num))
             } else { // shorted in case of false
-                (res, index, maxSoFar);
+                (res, index, maxSoFar)
             }
         }.head
     }
