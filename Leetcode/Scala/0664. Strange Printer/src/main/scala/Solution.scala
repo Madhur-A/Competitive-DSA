@@ -10,7 +10,7 @@ object Solution {
         def rx(i: Int, j: Int, k: Int): Int = {
             if (i > j) then { 0 } else {
                 dp.getOrElseUpdate((i, j, k), {
-                    if (s(i).toInt == k) then { rx(i + 1, j, k) } else 
+                    if (s(i).toInt == k) then { rx(i + 1, j, k) } else
                     if (s(j).toInt == k) then { rx(i, j - 1, k) } else {
                         (i to j).foldLeft(n) { case (res, mid) =>
                             math.min(res, 1 + rx(i, mid, s(i).toInt) + rx(mid + 1, j, k))
@@ -18,7 +18,7 @@ object Solution {
                     }})
             }
         }
-        
+
         rx(0, n - 1, '*'.toInt)
     }
 
@@ -36,13 +36,12 @@ object Solution {
                 }
             }
         }
-        
+
         dp.head.last
     }
-    
+
     def strangePrinter(s: String): Int = {
         // strangePrinterTD(s)
         strangePrinterBU(s)
     }
 }
-

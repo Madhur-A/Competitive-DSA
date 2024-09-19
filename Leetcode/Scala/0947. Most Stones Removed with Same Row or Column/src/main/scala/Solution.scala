@@ -28,7 +28,7 @@ class MergeFind private (val roots: Array[Int], val ranks: Array[Int]) {
     }
 
     def uniqueRoots(edges: Array[Array[Int]]): Int = {
-        edges.length - 
+        edges.length -
         edges.foldLeft(scala.collection.mutable.Set[Int]()) { case (seen, edge) =>
             seen.addOne(find(edge.head)); seen
         }.size
@@ -45,9 +45,5 @@ object MergeFind {
 }
 
 object Solution {
-    def removeStones(stones: Array[Array[Int]]): Int = {
-        MergeFind(stones)
-    }    
-
-    def response: String = removeStones(Array(Array(0,1),Array(1,0))).toString
+    def removeStones(stones: Array[Array[Int]]): Int = MergeFind(stones)
 }

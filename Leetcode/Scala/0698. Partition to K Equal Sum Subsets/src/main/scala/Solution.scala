@@ -20,6 +20,6 @@ object Solution {
                     }; visited.last == 0
                 }
             }
-        }  
+        }
     }
 }

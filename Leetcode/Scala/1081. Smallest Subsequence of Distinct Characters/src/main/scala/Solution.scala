@@ -12,7 +12,7 @@ object Solution {
             if (!seen.contains(element)) {
                 while (!res.isEmpty && res.last > element && index < indices(res.last)) {
                     seen.remove(res.last)
-                    res.remove(res.indices.last)                    
+                    res.remove(res.indices.last)
                 }
                 seen.add(element)
                 res.addOne(element)

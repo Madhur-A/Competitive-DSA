@@ -10,6 +10,6 @@ object Solution {
                 val j = if(num >= left) then index else r
                 (total + (j - i), i, j, index + 1)
             }
-        }._1
+        }.head
     }
 }

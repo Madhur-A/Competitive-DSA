@@ -4,7 +4,7 @@
 
 object Solution {
     def lemonadeChange(bills: Array[Int]): Boolean = {
-        bills.foldLeft((true, 0, 0)) { case ((res, fives, tens), bill) => 
+        bills.foldLeft((true, 0, 0)) { case ((res, fives, tens), bill) =>
             if (! res) then {
                 (false, fives, tens)
             } else {
