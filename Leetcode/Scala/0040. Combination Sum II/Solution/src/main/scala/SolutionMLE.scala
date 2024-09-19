@@ -2,7 +2,13 @@
 
 
 
-object SolutionMLE { // it exceeds memory limit
+// 172 / 176 test cases passed
+// exceeds memory limit
+// though it's functonally pure
+// but not strictly (due to usage of if-else instead of pattern-matching)
+// nevermind
+
+object SolutionMLE {
     def rx(index: Int, target: Int, nums: List[Int], currPath: List[Int], allPaths: Set[List[Int]]): Set[List[Int]] = {
         if (currPath.sum == target) {
             allPaths ++ Set(currPath.sorted)
@@ -22,3 +28,4 @@ object SolutionMLE { // it exceeds memory limit
         } else { List() }
     }
 }
+
