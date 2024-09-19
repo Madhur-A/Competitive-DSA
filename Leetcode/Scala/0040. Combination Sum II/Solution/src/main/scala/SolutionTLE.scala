@@ -2,7 +2,7 @@
 
 
 
-object SolutionTLE {
+object SolutionMLE { // it exceeds memory limit
     def rx(index: Int, target: Int, nums: List[Int], currPath: List[Int], allPaths: Set[List[Int]]): Set[List[Int]] = {
         if (currPath.sum == target) {
             allPaths ++ Set(currPath.sorted)
