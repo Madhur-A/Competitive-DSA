@@ -2,7 +2,6 @@
 
 
 
-
 import scala.collection.mutable.ArrayBuffer
 
 object Solution {
@@ -21,11 +20,11 @@ object Solution {
         }
         rx(0, iterable.size)
     }
-    
+
     def lengthOfLIS(nums: Array[Int]): Int = {
         val res = ArrayBuffer[Int]()
         res += nums(0)
-        nums.tail.foldLeft(res) { case (res, num) => 
+        nums.tail.foldLeft(res) { case (res, num) =>
             if(res.last < num) {
                 res += num
             } else {
