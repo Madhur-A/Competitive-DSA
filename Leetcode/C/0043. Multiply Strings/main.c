@@ -12,6 +12,7 @@ int pos[3000];
 char res[3000];
 
 char* multiply(char* num1, char* num2) {
+	if(strcmp(num1, "0") == 0 || strcmp(num2, "0") == 0) { return "0"; }
     int len1 = strlen(num1), len2 = strlen(num2);
     memset(pos, 0, sizeof(pos));
 
