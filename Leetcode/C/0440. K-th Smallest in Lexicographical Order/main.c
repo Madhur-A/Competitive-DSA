@@ -7,8 +7,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-//"Ooarai Joshigakuin Shori!"
-
 long get_next(long curr, long n) {
 	long next = curr + 1, sigma = 0;
 	while(curr <= n) {
