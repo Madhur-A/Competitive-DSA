@@ -1,7 +1,5 @@
 %% -module(sol).
 -compile(export_all). % testing phase directive
-
-
 % "Ooarai Joshigakuin Shori!"
 
 %% Definition for singly-linked list.
@@ -18,19 +16,7 @@ get_next(Head, Curr) ->
 			false -> get_next(Head#list_node.next, Curr)
 		end.
 
+validate(null) -> [];
+validate(Head) -> get_next(Head, Head#list_node.val) ++ validate(Head#list_node.next).
 
-validate(null, _) -> [];
-validate(Head, M) ->
-	case Head#list_node.val < M of
-		true -> [M] ++ validate(Head#list_node.next, M);
-		false ->
-			case Head#list_node.val =:= M of
-				true -> [0] ++ validate(Head#list_node.next, 0);
-				false ->
-					[NewMax] = get_next(Head, Head#list_node.val),
-					[NewMax] ++ validate(Head#list_node.next, NewMax)
-			end
-	end.
-
-
-next_larger_nodes(Head) -> validate(Head, 0).
+next_larger_nodes(Head) -> validate(Head).
