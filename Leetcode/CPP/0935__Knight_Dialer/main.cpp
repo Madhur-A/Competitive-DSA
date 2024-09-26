@@ -28,7 +28,7 @@ public:
         g[4] = {0, 3, 9}; g[6] = {0, 1, 7};
         g[7] = {2, 6}; g[8] = {1, 3}; g[9] = {2, 4};
         memset(dp, 0, sizeof(dp));
-        long res = 0L;
+        int res = 0;
         for(int i = 0; i < 10; ++i) {
             res += rx(i, n, 0);
             res %= mod;
