@@ -17,13 +17,12 @@ public:
             if(res->second > start) { return false; }
         }
         for(; res != listings.end() && res->first < end; ++res) {
-            if (res->second > start) { return false; }
+            if(res->second > start) { return false; }
         }
         listings.insert({start, end});
         return true;
     }
 };
-
 
 int main() {
     MyCalendar cal;
