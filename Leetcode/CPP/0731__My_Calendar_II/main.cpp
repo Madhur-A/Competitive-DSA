@@ -6,25 +6,22 @@
 
 class MyCalendarTwo {
 public:
-    using element = std::pair<int, int>;
 public:
-    std::set<element> overlaps;
-    std::set<element> events;
+    std::map<int, int> listings;
 public:
     bool book(int start, int end) {
-        std::set<element>::const_iterator search = overlaps.upper_bound({start, INT_MIN});
-        for(; search != overlaps.end() and search->first < end; ++search) {
-            if(search->second > start) { return false; }
-        }
-
-        search = events.upper_bound({start, INT_MIN});
-        for(; search != events.end() and search->first < end; ++search) {
-            if(search->second > start) {
-                overlaps.insert({std::max(start, search->first), std::min(end, search->second)});
+        listings[start] += 1;
+        listings[end]   -= 1;
+        int times = 0;
+        for(std::pair<int const, int> const &booking: listings) {
+            times += booking.second;
+            if(times > 2) {
+                listings[start] -= 1;
+                listings[end]   += 1;
+                return false;
             }
         }
 
-        events.insert({start, end});
         return true;
     }
 };
