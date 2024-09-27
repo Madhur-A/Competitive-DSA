@@ -4,7 +4,7 @@ A collection of programming solutions for various coding problems from different
 
 ## Repository Structure
 
-* **[Website Name]** (e.g., LeetCode etc.)
+* **[Website Name]** (e.g., LeetCode, CodeForces etc.)
 	+ **[Language]** (e.g., C++, Scala, Java, Erlang etc.)
 		- **[Problem Name]** (e.g., Two Sum, Maximum Subarray, etc.)
 
