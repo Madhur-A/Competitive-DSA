@@ -5,7 +5,7 @@
 object Solution {
     def main(args: Array[String]): Unit = {
         val reader = scala.io.StdIn
-        val t = reader.readLine().toInt
+        val t = reader.readLine.toInt
         for (cases <- 1 to t) {
             val Array(n, q) = reader.readLine.split(" ").map(_.toInt)
             val target = reader.readLine.split(" ").map(_.toInt)
