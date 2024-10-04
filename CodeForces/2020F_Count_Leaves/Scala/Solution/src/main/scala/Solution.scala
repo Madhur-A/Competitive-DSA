@@ -26,8 +26,10 @@ object Solution {
         case true  => divisors(num)
         case false => {
             divisors(num) =
-                // this collapses in Scala 2.11.x (and perhaps 2.12.x too).
+                // this collapses in Scala 2.11.x (and perhaps 2.12.x too!).
                 primeFactors(num).sorted.tail.groupBy(identity).view.mapValues(_.size).map((key, value) => value + 1).toList.foldLeft(1L)(_ * _)
+            // therefore for older versions
+            // primeFactors(num).sorted.tail.groupBy(identity).mapValues(_.size).map(e => e._2 + 1).toList.foldLeft(1L)(_ * _)
             divisors(num)
         }
     }
