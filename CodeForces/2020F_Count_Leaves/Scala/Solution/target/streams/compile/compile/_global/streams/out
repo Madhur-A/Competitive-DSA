@@ -1,9 +1,0 @@
-[0m[[0m[33mwarn[0m] [0m[0m[33m[33m-- Deprecation Warning: /home/ank/Desktop/Kodex/G/Competitive-DSA/CodeForces/2020F_Count_Leaves/Scala/Solution/src/main/scala/Solution.scala:53:39 [0m[0m[0m
-[0m[[0m[33mwarn[0m] [0m[0m[33m53 |[0m                [33mval[0m [36mx[0m: [35mLong[0m = math.pow(i, k).toDouble.toLong[0m
-[0m[[0m[33mwarn[0m] [0m[0m[33m[33m   |[0m                                       ^[0m[0m
-[0m[[0m[33mwarn[0m] [0m[0m[33m   |[0m[33mmethod[0m [35mlong2double[0m in [33mobject[0m [35mLong[0m is deprecated since 2.13.1: Implicit conversion from Long to Double is dangerous because it loses precision. Write `.toDouble` instead.[0m
-[0m[[0m[33mwarn[0m] [0m[0m[33m[33m-- Deprecation Warning: /home/ank/Desktop/Kodex/G/Competitive-DSA/CodeForces/2020F_Count_Leaves/Scala/Solution/src/main/scala/Solution.scala:53:42 [0m[0m[0m
-[0m[[0m[33mwarn[0m] [0m[0m[33m53 |[0m                [33mval[0m [36mx[0m: [35mLong[0m = math.pow(i, k).toDouble.toLong[0m
-[0m[[0m[33mwarn[0m] [0m[0m[33m[33m   |[0m                                          ^[0m[0m
-[0m[[0m[33mwarn[0m] [0m[0m[33m   |[0m[33mmethod[0m [35mlong2double[0m in [33mobject[0m [35mLong[0m is deprecated since 2.13.1: Implicit conversion from Long to Double is dangerous because it loses precision. Write `.toDouble` instead.[0m
-[0m[[0m[33mwarn[0m] [0m[0mtwo warnings found[0m
