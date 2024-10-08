@@ -35,6 +35,7 @@ class SegmentTree(nums: Array[Int]) {
 
     def update(left: Int, right: Int): Unit = updateRange(0, 0, n - 1, left, right)
 
+
     def updateRange(node: Int, start: Int, finish: Int, left: Int, right: Int): Unit = {
         pushDown(node, start, finish)
         (start, finish) match {
