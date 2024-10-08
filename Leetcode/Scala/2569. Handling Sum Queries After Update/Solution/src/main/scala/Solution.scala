@@ -18,7 +18,7 @@ class SegmentTree(nums: Array[Int]) {
             val (gauche, droit) = coupling(node)
             build(gauche, start, mid)
             build(droit, mid + 1, finish)
-            t(node) = t(2 * node + 1) + t(2 * node + 2)
+            t(node) = t(gauche) + t(droit)
         }
     }
 
@@ -57,7 +57,7 @@ class SegmentTree(nums: Array[Int]) {
                 val (gauche, droit) = coupling(node)
                 rangeUpdate(gauche, start, mid, left, right)
                 rangeUpdate(droit, mid + 1, finish, left, right)
-                t(node) = t(2 * node + 1) + t(2 * node + 2)
+                t(node) = t(gauche) + t(droit)
             }
         }
     }
