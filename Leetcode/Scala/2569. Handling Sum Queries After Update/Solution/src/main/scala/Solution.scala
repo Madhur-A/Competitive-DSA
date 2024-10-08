@@ -79,8 +79,8 @@ class SegmentTree(nums: Array[Int]) {
     }
 }
 
-object Solution {
-    def handleQuery(nums1: Array[Int], nums2: Array[Int], queries: Array[Array[Int]]): Array[Long] = {
+object SegmentTree {
+    def apply(nums1: Array[Int], nums2: Array[Int], queries: Array[Array[Int]]): Array[Long] = {
         val (sg, total) = (new SegmentTree(nums1), nums2.foldLeft(0L)(_ + _))
         queries.foldLeft((List[Long](), total)) { case ((res, curr), query) =>
             val Array(queryType, left, right) = query
@@ -91,4 +91,8 @@ object Solution {
             }
         }.head.reverse.toArray
     }
+}
+
+object Solution {
+    def handleQuery(nums1: Array[Int], nums2: Array[Int], queries: Array[Array[Int]]): Array[Long] = SegmentTree(nums1, nums2, queries)
 }
