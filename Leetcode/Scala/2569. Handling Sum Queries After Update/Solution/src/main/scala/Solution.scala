@@ -67,14 +67,11 @@ class SegmentTree(nums: Array[Int]) {
 
     def countOfOnes(node: Int, start: Int, finish: Int, left: Int, right: Int): Int = (start, finish) match {
         case (start, finish) if (left > finish || right < start || start > finish) => 0
-        case                                                                     _ => (start, finish) match {
-            case (start, finish) if (left <= start && finish <= right) => propagate(node, start, finish); t(node)
-            case                                                    _  => {
-                propagate(node, start, finish)
-                val mid = start + ((finish - start) >> 1)
-                val (gauche, droit) = coupling(node)
-                countOfOnes(gauche, start, mid, left, right) + countOfOnes(droit, mid + 1, finish, left, right)
-            }
+        case (start, finish) if (left <= start && finish <= right)                 => t(node)
+        case                                                                    _  => {
+            val mid = start + ((finish - start) >> 1)
+            val (gauche, droit) = coupling(node)
+            countOfOnes(gauche, start, mid, left, right) + countOfOnes(droit, mid + 1, finish, left, right)
         }
     }
 }
@@ -94,5 +91,6 @@ object SegmentTree {
 }
 
 object Solution {
-    def handleQuery(nums1: Array[Int], nums2: Array[Int], queries: Array[Array[Int]]): Array[Long] = SegmentTree(nums1, nums2, queries)
+    def handleQuery(nums1: Array[Int], nums2: Array[Int], queries: Array[Array[Int]]): Array[Long] =
+    SegmentTree(nums1, nums2, queries)
 }
