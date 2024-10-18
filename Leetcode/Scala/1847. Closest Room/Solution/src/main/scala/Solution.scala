@@ -4,7 +4,7 @@
 
 // ::highly non functional::
 // apparently constraints of this problem
-// have aversion to methods like .filter .map etc
+// have an aversion to methods like .filter .map etc
 
 class Solve(rooms: Array[Array[Int]]) {
     val n = rooms.length
