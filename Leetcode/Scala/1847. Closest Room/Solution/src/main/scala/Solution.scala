@@ -16,7 +16,7 @@ class Solve(rooms: Array[Array[Int]]) {
                 val mid = left + ((right - left) >> 1)
                 sortedRooms(mid)(1) match {
                     case x if (x < target) => rx(mid + 1, right)
-                    case x => rx(left, mid)
+                    case x                 => rx(left, mid)
                 }
             }
             case false => left
@@ -29,14 +29,13 @@ object Solve {
     def apply(rooms: Array[Array[Int]], queries: Array[Array[Int]]): Array[Int] = {
         val sol = new Solve(rooms)
         val res = Array.fill(queries.length)(-1)
-        val sortedQeuries =
 
-        queries.zipWithIndex.sortBy(_._1(1)).foreach((query, qIndex) => {
+        queries.zipWithIndex.foreach((query, qIndex) => {
             val Array(preferred, minSize) = query
             val closestRoomIndex = sol.findClosest(minSize)
-            val availableRooms = scala.collection.mutable.Set[Int]()
             var minimumDifference = Int.MaxValue
             var minimumPossibleRoom = Int.MaxValue
+
             (closestRoomIndex until sol.n).foreach(e => {
                 val diff = math.abs(preferred - sol.sortedRooms(e)(0))
                 if (diff <= minimumDifference) {
