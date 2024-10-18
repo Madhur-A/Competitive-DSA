@@ -2,9 +2,9 @@
 
 
 
-// highly non functional
-// apparently this problem is higly repellant to
-// methods like .filter .map etc
+// ::highly non functional::
+// apparently constraints of this problem
+// have aversion to methods like .filter .map etc
 
 class Solve(rooms: Array[Array[Int]]) {
     val n = rooms.length
