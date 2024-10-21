@@ -9,10 +9,9 @@ A collection of programming solutions for various coding problems from different
 		- **[Problem Name]** (e.g., Two Sum, Maximum Subarray, etc.)
 
 
-## LeetCode Solutions in `Scala` and `Erlang`
-=====================================
+### LeetCode Solutions in `Scala` and `Erlang`
 
-Most of the `Scala` solutions for [LeetCode](https://leetcode.com/) are purely functional. However, in situations where it is impossible to provide an accepted functional solution (due to problem constraints or nature, e.g., Dynamic Programming, Graph, and similar), such solutions are marked with "MLE" or "TLE" prefixes or suffixes. The same applies to `Erlang`. Although I strive to explicitly indicate non-functional solutions in `Scala` and `Erlang`, oversights may occur.
+Most of the `Scala` solutions for [LeetCode](https://leetcode.com/) are purely functional. However, in situations where it is impossible to provide an accepted functional solution (due to problem constraints or nature, e.g., Dynamic Programming, Graph, and similar), such solutions are marked with "MLE" or "TLE" prefixes or suffixes (in addition to non-functional accepted solutions). The same applies to `Erlang`. Although I strive to explicitly indicate non-functional solutions in `Scala` and `Erlang`, oversights may occur.
 
 
 Note:
