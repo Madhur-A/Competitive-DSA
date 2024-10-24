@@ -2,6 +2,8 @@
 
 
 
+// certainly NOT functional
+
 object Solution {
     def mincostTickets(days: Array[Int], costs: Array[Int]): Int = {
         val  n = days.length
