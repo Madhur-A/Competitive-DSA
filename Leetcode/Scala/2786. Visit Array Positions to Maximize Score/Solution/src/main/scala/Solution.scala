@@ -2,6 +2,7 @@
 
 
 
+// certainly NOT functional
 object Solution {
     val inf: Long = Int.MinValue
 
