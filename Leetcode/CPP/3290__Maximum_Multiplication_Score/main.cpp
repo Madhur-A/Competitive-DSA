@@ -12,7 +12,7 @@ public:
 public:
     std::vector<std::vector<long>> dp;
 public:
-    // top down
+    /*** Top Down ***/ 
     long rx(std::vector<int> const &a, std::vector<int> const &b, int count, int index) {
         int const n = b.size();
         if(count == 4) { return 0;   }
