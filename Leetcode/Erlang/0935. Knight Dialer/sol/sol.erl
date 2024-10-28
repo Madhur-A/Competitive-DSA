@@ -1,9 +1,10 @@
-%% -module(sol).
+%% -module(sol). % NOT functional
 -compile(export_all). % testing phase directive
 % "Ooarai Joshigakuin Shori!"
 
 -spec knight_dialer(N :: integer()) -> integer().
 
+% https://oeis.org/A327692
 calculate(Index, N, Have) when Index =< N ->
     A = 6 * array:get(Index - 2, Have),
     B = 4 * array:get(Index - 4, Have),
