@@ -2,6 +2,8 @@
 
 
 
+// Ha! NOT Functional, lol!
+
 class NumArray(nums: Array[Int]) {
     val n = nums.length
     val t = Array.fill(4 * n)(0)
@@ -39,5 +41,4 @@ class NumArray(nums: Array[Int]) {
         val mid = start + ((finish - start) >> 1)
         return sumInRange(2 * node + 1, start, mid, left, right) + sumInRange(2 * node + 2, mid + 1, finish, left, right)
     }
-
 }

@@ -2,7 +2,7 @@
 
 
 
-import scala.collection.mutable.{PriorityQueue, Map, Queue, Set}
+import scala.collection.mutable.{PriorityQueue, Map, Queue, Set} // certainly NOT functional
 
 object Solution {
     // all methods given below solve the coin-change problem

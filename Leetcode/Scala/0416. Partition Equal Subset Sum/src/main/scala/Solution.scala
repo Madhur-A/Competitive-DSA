@@ -2,22 +2,24 @@
 
 
 
+// certainly NOT functional
+
 object Solution {
-    def canPartition(nums: Array[Int]): Boolean = {
-        val (total, target) = (nums.sum, nums.sum / 2)
-        total match {
-            case x if (total & 1) == 1 =>  false
-            case _                     =>  {
-                val dp = Array.fill(target + 1)(false)
-                dp.update(0, true)
-                nums.foldLeft(dp) { case (dp, num) =>
-                    if (!dp(target)) {
-                        (target to num by -1).foreach { subTarget =>
-                            dp.update(subTarget, dp(subTarget) | dp(subTarget - num))
-                        }
-                    }; dp
-                }.last
-            }
+    def canPartition(nums: Array[Int]): Boolean = (nums.sum & 1) match {
+        case 1 =>  false
+        case _ =>  {
+            val tg = nums.sum >> 1
+            val dp = Array(true) ++ Array.fill(tg)(false)
+            nums.foldLeft(dp) { case (dp, num) =>
+                dp(tg) match {
+                    case  true => dp
+                    case false => {
+                        (tg to num by -1).foreach { subTarget =>
+                            dp(subTarget) = dp(subTarget) || dp(subTarget - num)
+                        }; dp
+                    }
+                }
+            }.last
         }
     }
 }
