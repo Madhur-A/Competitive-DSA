@@ -3,11 +3,12 @@
 % "Ooarai Joshigakuin Shōri!"
 
 %% Definition for a binary tree node.
--record(tree_node, {val = 0 :: integer(),
-                    left = null  :: 'null' | #tree_node{},
-                    right = null :: 'null' | #tree_node{}}).
+%%
+%% -record(tree_node, {val = 0 :: integer(),
+%%                     left = null  :: 'null' | #tree_node{},
+%%                     right = null :: 'null' | #tree_node{}}).
 
-%% -spec level_order_bottom(Root :: #tree_node{} | null) -> [[integer()]].
+-spec level_order_bottom(Root :: #tree_node{} | null) -> [[integer()]].
 
 get_nodes(null,  null) -> [];
 get_nodes(null, Right) -> [Right];

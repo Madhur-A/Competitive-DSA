@@ -3,11 +3,12 @@
 % "Ooarai Joshigakuin Shōri!"
 
 %% Definition for a binary tree node.
--record(tree_node, {val = 0 :: integer(),
-                    left = null  :: 'null' | #tree_node{},
-                    right = null :: 'null' | #tree_node{}}).
+%%
+%% -record(tree_node, {val = 0 :: integer(),
+%%                     left = null  :: 'null' | #tree_node{},
+%%                     right = null :: 'null' | #tree_node{}}).
 
-%% -spec path_sum(Root :: #tree_node{} | null, TargetSum :: integer()) -> [[integer()]].
+-spec path_sum(Root :: #tree_node{} | null, TargetSum :: integer()) -> [[integer()]].
 
 is_leaf(null) -> false;
 is_leaf(#tree_node{left = Left, right = Right}) -> Left =:= null andalso Right =:= null.

@@ -1,11 +1,11 @@
 %% -module(sol).
 -compile(export_all). % testing phase directive
-% "Ooarai Joshigakuin Shori!"
+% "Ooarai Joshigakuin Shōri!"
 
 %% Definition for singly-linked list.
 %%
--record(list_node, {val = 0 :: integer(),
-                    next = null :: 'null' | #list_node{}}).
+%% -record(list_node, {val = 0 :: integer(),
+%%                     next = null :: 'null' | #list_node{}}).
 
 -spec delete_duplicates(Head :: #list_node{} | null) -> #list_node{} | null.
 

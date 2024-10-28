@@ -2,7 +2,7 @@
 -compile(export_all). % testing phase directive
 % "Ooarai Joshigakuin Shori!"
 
--record(list_node, {val = 0 :: integer(), next = null :: 'null' | #list_node{}}).
+%% -record(list_node, {val = 0 :: integer(), next = null :: 'null' | #list_node{}}).
 
 swapper(null) -> null;
 swapper(Node) when Node#list_node.next =:= null -> Node;

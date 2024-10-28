@@ -5,9 +5,10 @@
 -spec level_order(Root :: #tree_node{} | null) -> [[integer()]].
 
 %% Definition for a binary tree node.
--record(tree_node, {val = 0 :: integer(),
-                    left = null  :: 'null' | #tree_node{},
-                    right = null :: 'null' | #tree_node{}}).
+%%
+%% -record(tree_node, {val = 0 :: integer(),
+%%                     left = null  :: 'null' | #tree_node{},
+%%                     right = null :: 'null' | #tree_node{}}).
 
 get_nodes(null,  null) -> [];
 get_nodes(null, Right) -> [Right];

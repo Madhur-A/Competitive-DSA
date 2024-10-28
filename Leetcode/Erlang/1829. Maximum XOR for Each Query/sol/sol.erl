@@ -1,6 +1,6 @@
 %% -module(sol).
 -compile(export_all). % testing phase directive
--author("Miho Nishizumi"). % "Ooarai Joshigakuin Shōri!"
+% "Ooarai Joshigakuin Shōri!"
 
 -spec get_maximum_xor(Nums :: [integer()], MaximumBit :: integer()) -> [integer()].
 

@@ -1,11 +1,11 @@
--module(sol).
+%% -module(sol).
 -compile(export_all). % testing phase directive
 % "Ooarai Joshigakuin Shōri!"
 
 -spec max_subarrays(Nums :: [integer()]) -> integer().
 
-rx([],                _,     1) -> 1;
-rx([],                _, Count) -> Count - 1;
+rx(            [],    _,     1) -> 1;
+rx(            [],    _, Count) -> Count - 1;
 rx([First | Rest], Curr, Count) ->
     case (Curr band First) of
         0 -> rx(Rest, -1, Count + 1);

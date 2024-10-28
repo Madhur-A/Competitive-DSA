@@ -1,4 +1,6 @@
+%% -module(sol).
 -compile(export_all). % testing phase directive
+% "Ooarai Joshigakuin Shōri!"
 
 %% Definition for singly-linked list.
 %%
@@ -17,16 +19,16 @@
 
 rx(Head, _Root) when Head == null -> true;
 rx(Head,  Root) when Root =/= null, Head#list_node.val == Root#tree_node.val ->
-	rx(Head#list_node.next, Root#tree_node.left) orelse rx(Head#list_node.next, Root#tree_node.right);
-rx(_, _) -> 
-	false.
+    rx(Head#list_node.next, Root#tree_node.left) orelse rx(Head#list_node.next, Root#tree_node.right);
+rx(_, _) ->
+    false.
 
 dx(Head, Root) when Root == null -> false;
 dx(Head, Root) ->
-	case rx(Head, Root) of
-		false -> dx(Head, Root#tree_node.left) orelse dx(Head, Root#tree_node.right);
-		true -> true
-	end.
+    case rx(Head, Root) of
+        false -> dx(Head, Root#tree_node.left) orelse dx(Head, Root#tree_node.right);
+        true -> true
+    end.
 
-is_sub_path(Head, Root) -> 
-	dx(Head, Root).
+is_sub_path(Head, Root) ->
+    dx(Head, Root).

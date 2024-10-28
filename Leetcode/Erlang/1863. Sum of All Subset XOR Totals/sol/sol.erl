@@ -1,9 +1,10 @@
+%% -module(sol).
 -compile(export_all). % testing phase directive
 % "Ooarai Joshigakuin Shōri!"
 
 -spec subset_xor_sum(Nums :: [integer()]) -> integer().
 
-reduce([], Res) -> Res;
+reduce(          [], Res) -> Res;
 reduce([First|Rest], Res) -> reduce(Rest, First bxor Res).
 
 rx(   _, Upper, Upper, Res) -> Res;
