@@ -1,3 +1,7 @@
+
+
+
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,19 +23,19 @@ import java.util.List;
 
 
 public class Solution {
-	List<Integer> res;
+    List<Integer> res;
 
-	public void rx(TreeNode node) {
-		if(node != null) {
-			rx(node.left);
-			rx(node.right);
-			res.add(node.val);
-		}
-	}
+    public void rx(TreeNode node) {
+        if(node != null) {
+            rx(node.left);
+            rx(node.right);
+            res.add(node.val);
+        }
+    }
 
     public List<Integer> postorderTraversal(TreeNode root) {
-    	res = new ArrayList<>();
-    	rx(root);
-    	return res;
+        res = new ArrayList<>();
+        rx(root);
+        return res;
     }
 }
