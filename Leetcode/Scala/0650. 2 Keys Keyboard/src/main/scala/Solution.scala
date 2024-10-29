@@ -39,3 +39,5 @@ object Solution {
         memoize((n: Int) => (2 until n).filter(n % _ == 0).map(i => minSteps(i) + n / i).minOption.getOrElse(if (n > 1) n else 0))(n)
     }
 }
+
+// and none of them are functional, as usual

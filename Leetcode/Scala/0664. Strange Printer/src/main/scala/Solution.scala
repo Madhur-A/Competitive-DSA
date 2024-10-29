@@ -5,7 +5,7 @@
 object Solution {
     def strangePrinterTD(s: String): Int = {
         val  n = s.length
-        val dp = collection.mutable.Map.empty[(Int, Int, Int), Int]
+        val dp = collection.mutable.Map.empty[(Int, Int, Int), Int] // not functional
 
         def rx(i: Int, j: Int, k: Int): Int = {
             if (i > j) then { 0 } else {
