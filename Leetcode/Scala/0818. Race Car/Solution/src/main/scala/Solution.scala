@@ -2,6 +2,8 @@
 
 
 
+// not (purely) functional
+
 object Solution {
     def racecar(target: Int): Int = {
         (1 to target).foldLeft(Array.fill(target + 1)(0)) { case (dp, index) =>

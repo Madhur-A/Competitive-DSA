@@ -2,6 +2,8 @@
 
 
 
+// not (purely) functional
+
 object Solution {
     def removeSubfolders(folders: Array[String]): List[String] = {
         val fSorted = folders.sorted

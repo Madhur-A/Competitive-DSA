@@ -2,6 +2,8 @@
 
 
 
+// certainly not functional
+
 class MergeFind private (val roots: Array[Int], val ranks: Array[Int]) {
     def this(numberOfElements: Int) = {
         this(Array.tabulate(numberOfElements + 10)(identity), new Array[Int](numberOfElements + 10))

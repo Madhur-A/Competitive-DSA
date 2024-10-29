@@ -2,6 +2,8 @@
 
 
 
+// not (purely) functional
+
 object Solution {
     def constructFromPrePost(preorder: Array[Int], postorder: Array[Int]): TreeNode = {
         if (preorder.nonEmpty && postorder.nonEmpty) {

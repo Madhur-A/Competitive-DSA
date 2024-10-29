@@ -2,6 +2,8 @@
 
 
 
+// certainly NOT functional
+
 object Solution {
     def maxProduct(nums: Array[Int]): Int = {
         val (n, dp) = (nums.length, Array.ofDim[Long](nums.length, 2))

@@ -2,6 +2,8 @@
 
 
 
+// certainly NOT functional
+
 import scala.collection.mutable.{Set, ArrayBuffer}
 
 object Solution {
