@@ -21,7 +21,7 @@ Note:
 
 ## Platforms
 
-* LeetCode
+* Leetcode
 
 * CodeForces
 
