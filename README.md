@@ -11,13 +11,9 @@ A collection of programming solutions for various coding problems from different
 
 ### LeetCode Solutions in `Scala` and `Erlang`
 
-Most of the `Scala` solutions for [LeetCode](https://leetcode.com/) are functional. However, in situations where it is impossible to provide an accepted functional solution (due to problem constraints or nature, e.g., Dynamic Programming, Graph, and similar), such solutions are marked with "MLE" or "TLE" prefixes or suffixes (in addition to non-functional accepted solutions). The same applies to `Erlang`. Although I've tried to explicitly indicate non-functional solutions in `Scala` and `Erlang`, oversights may occur.
-
-
-Note:
-*   MLE: Memory Limit Exceeded
-*   TLE: Time Limit Exceeded
-
+The majority of `Scala` solutions provided for [LeetCode](https://leetcode.com/) problems follow a functional programming approach. However, in cases where functional solutions are impractical or impossible due to problem constraints (e.g., Dynamic Programming, Graph problems), additional non-functional solutions may be provided.
+These non-functional solutions, marked with "MLE" (Memory Limit Exceeded) or "TLE" (Time Limit Exceeded) prefixes or suffixes, are typically offered when I have sufficient available time and willingness.
+This convention applies to both `Scala` and `Erlang` solutions. While efforts have been made to explicitly label non-functional solutions, occasional oversights may occur.
 
 ## Platforms
 
@@ -28,6 +24,8 @@ Note:
 * CodeWars
 
 * CodeForces
+
+* Kattis
 
 ## Languages
 
