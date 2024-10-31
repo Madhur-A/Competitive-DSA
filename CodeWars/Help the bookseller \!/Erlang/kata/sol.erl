@@ -1,6 +1,6 @@
 -module(sol).
 -compile(export_all). % testing phase directive
--author("Miho Nishizumi").
+-author("Miho Nishizumi"). % "Ooarai Joshigakuin Shōri!"
 %% -export([stockList/2]).
 
 -spec stockList([string], [string]) -> [{string, integer}].
