@@ -21,13 +21,12 @@ process(Line) ->
     end.
 
 main() ->
-    Incoming = io:get_line(""),
-    case Incoming =/= eof of
+    Line = io:get_line(""),
+    case Line =/= eof of
         true  ->
-            [Line | _ ] = string:replace(Incoming, "\n", ""),
-            process(Line),
+            process(string:trim(Line)),
             main();
-        false -> ok
+        false -> io:format("")
     end.
 
 clear() ->
