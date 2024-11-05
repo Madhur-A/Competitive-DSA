@@ -20,9 +20,10 @@ object Solution {
             case false => {
                 val count = inputString.takeWhile(_ == prev).length
                 val newString = inputString.dropWhile(_ == prev)
+                val remString = calculate(count, prev)
                 newString.isEmpty match {
-                    case  true => calculate(count, prev) + res
-                    case false => rx(newString, newString.head, calculate(count, prev) + res)
+                    case  true => remString + res
+                    case false => rx(newString, newString.head, remString + res)
                 }
             }
         }
