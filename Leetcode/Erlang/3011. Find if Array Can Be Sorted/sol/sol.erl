@@ -14,7 +14,7 @@ rx([A]) -> [A];
 rx([A, B | Rest]) when A > B ->
     case popcount(A) == popcount(B) of
         true  -> rx([B, A | Rest]);
-        false -> rx([Rest])
+        false -> rx([]) % shorting execution
     end;
 rx([A, B | Rest]) ->
     [A] ++ rx([B | Rest]).
@@ -24,10 +24,11 @@ ux([A]) -> [A];
 ux([A, B | Rest]) when A < B ->
     case popcount(A) == popcount(B) of
         true  -> ux([B, A | Rest]);
-        false -> ux([Rest])
+        false -> ux([])
     end;
 ux([A, B | Rest]) ->
     [A] ++ ux([B | Rest]).
+
 
 decide(N) ->
     L = length(N),
