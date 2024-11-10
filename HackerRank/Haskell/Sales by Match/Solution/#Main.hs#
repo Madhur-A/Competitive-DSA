@@ -1,0 +1,14 @@
+
+
+
+
+module Main where
+
+import Data.List (group, sort)
+
+main :: IO ()
+main  = interact $ show . sum . map (flip div 2) . map read . words . head . tail . lines
+
+reader :: String -> Int
+reader = read
+λ> 
