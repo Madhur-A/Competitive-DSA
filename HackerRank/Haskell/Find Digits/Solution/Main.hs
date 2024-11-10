@@ -1,20 +1,16 @@
-
+-- https://www.hackerrank.com/challenges/find-digits/problem
 
 
 
 module Main where
 
+import Data.Char (digitToInt)
+
 main :: IO ()
 main = interact $ solve . map read . tail . lines
 
 solve :: [Int] -> String
-solve nums = unlines $ map show [solve' num num | num <- nums]
+solve nums = unlines $ map show [solve' num | num <- nums]
 
-solve' :: Int -> Int -> Int
-solve' num curr
-  | curr == 0                            = 0
-  | divisor /= 0 && rem num divisor == 0 = 1 + solve' num divided
-  | otherwise                            = solve' num divided
-  where
-    divisor = rem curr 10
-    divided = div curr 10
+solve' :: Int -> Int
+solve' num = length $ filter (\x -> ((x /= 0) && (0 == rem num x))) $ map digitToInt $ show num
