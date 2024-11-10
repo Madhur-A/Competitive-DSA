@@ -7,7 +7,7 @@ module Main where
 import qualified Data.Map.Strict as M
 
 main :: IO ()
-main = interact $ (show . solve (M.fromList [(-1,-1)]) . map read . words . head . tail . lines)
+main = interact $ (show . solve M.empty . map read . words . head . tail . lines)
 
 contains :: M.Map Int Int -> Int -> Int
 contains g key =

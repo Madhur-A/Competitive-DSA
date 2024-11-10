@@ -9,23 +9,8 @@ import qualified Data.Sequence as DS
 main :: IO ()
 main = interact $ (show . solve . map (map read) . map words . lines)
 
-findRight :: DS.Seq Int -> Int -> Int
-findRight nums target =
-  let
-    l = 0
-    r = length nums
-  in
-    rx l r
-  where
-    rx left right
-      | right <= left               = left
-      | DS.index nums mid > target  = rx left mid
-      | otherwise                   = rx (mid + 1) right
-      where
-        mid = div (left + right) 2
-
 solve :: [[Int]] -> Int
-solve ((n : k : []) : rest) = solve' k k (DS.fromList []) $ concat rest
+solve ((n : k : []) : rest) = solve' k k DS.empty $ concat rest
 
 solve' :: Int -> Int -> DS.Seq Int -> [Int] -> Int
 solve' m n t [] = 1
@@ -35,3 +20,14 @@ solve' m n t (curr : rest)
   where
     updated = DS.dropWhileL ( <= curr) t
     added   = DS.insertAt (findRight updated (curr + 1000)) (curr + 1000) updated
+
+findRight :: DS.Seq Int -> Int -> Int
+findRight nums target = rx left right
+  where left  = 0
+        right = length nums
+        rx l r
+          | r <= l                    = l
+          | DS.index nums m > target  = rx l m
+          | otherwise                 = rx (m + 1) r
+          where
+            m = div (l + r) 2
