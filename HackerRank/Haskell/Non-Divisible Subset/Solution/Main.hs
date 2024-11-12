@@ -9,14 +9,11 @@ import Data.List (splitAt)
 main :: IO ()
 main = interact $ show . solve . map (map read) . map words . lines
 
-insert :: [Int] -> Int -> [Int]
-insert nums index =
-  let (prefix, suffix) = splitAt index nums
-  in prefix ++ [succ (head suffix)] ++ tail suffix
-
 freqs :: Int -> [Int] -> [Int] -> [Int]
-freqs _ f             [] = f
-freqs k f (first : rest) = freqs k (insert f (rem first k)) rest
+freqs _ f     [] = f
+freqs k f (first : rest) =
+  let (prefix, suffix) = splitAt (mod first k) f
+  in freqs k (prefix ++ [succ (head suffix)] ++ tail suffix) rest
 
 solve :: [[Int]] -> Int
 solve (( _ : k : []) : nums : [])  =
