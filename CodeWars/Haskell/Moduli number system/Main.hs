@@ -1,4 +1,4 @@
--- module Codewars.Kata.ModSys (fromNb2Str) where
+module Codewars.Kata.ModSys (fromNb2Str) where
 
 
 

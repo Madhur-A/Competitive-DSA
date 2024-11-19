@@ -1,4 +1,4 @@
--- module Kata.SmallestPossibleSum where
+module Kata.SmallestPossibleSum where
 
 
 
