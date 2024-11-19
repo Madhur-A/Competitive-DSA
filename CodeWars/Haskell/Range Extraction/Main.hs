@@ -2,7 +2,7 @@ module RangeExtractor.JorgeVS.Kata where
 
 
 
-import Data.List (groupBy, intercalate)
+import Data.List (intercalate)
 
 solution :: [Integer] -> String
 solution = intercalate "," . map formatRange . foldr groupRanges []
