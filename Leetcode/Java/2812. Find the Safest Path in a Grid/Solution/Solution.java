@@ -31,32 +31,31 @@ class Solution {
         int[][] distances = new int[r][c];
         Deque<Integer> t = new ArrayDeque<>();
         boolean[] seen = new boolean[r*c];
-        Arrays.fill(seen, false);
 
         for (int i = 0; i < r; ++i) {
+            Arrays.fill(distances[i], inf);
             for (int j = 0; j < c; ++j) {
                 if (grid[i][j] == 1) {
-                    t.push(i*c + j);
+                    distances[i][j] = 0;
                     seen[i*c + j] = true;
+                    t.push(i*c + j);
                 }
             }
         }
 
-        for (int d = 0; !t.isEmpty(); ++d) {
-            final int z = t.size();
-            for (int s = 0; s < z; ++s) {
-                int position = t.pollLast();
-                int i = position / c, j = position % c;
-                distances[i][j] = d;
-                for (int[] dir: dirs) {
-                    int h = dir[0] + i, k = dir[1] + j;
-                    if (isValid(r, c, h, k) && !seen[h*c + k]) {
-                        seen[h*c + k] = true;
-                        t.push(h*c + k);
-                    }
+        while (!t.isEmpty()) {
+            int position = t.pollLast();
+            int i = position / c, j = position % c;
+            for (int[] dir: dirs) {
+                int h = dir[0] + i, k = dir[1] + j;
+                if (isValid(r, c, h, k) && !seen[h*c + k] && distances[h][k] == inf) {
+                    distances[h][k] = distances[i][j] + 1;
+                    t.push(h*c + k);
+                    seen[h*c + k] = true;
                 }
             }
         }
+
 
         PriorityQueue<Pair> u = new PriorityQueue<>();
         u.offer(new Pair(-distances[0][0], 0));
