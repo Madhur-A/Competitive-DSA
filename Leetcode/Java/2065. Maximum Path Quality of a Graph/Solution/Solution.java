@@ -56,7 +56,7 @@ class Solution {
         this.maxTime = maxTime;
 
         List<int[]>[] g = new ArrayList[n];
-        for (int i = 0; i < n; ++i) g[i] = new ArrayList<>();
+        for (int i = 0; i < n; g[i] = new ArrayList<>(), ++i);
         for (int[] e : edges) {
             int u = e[0], v = e[1], t = e[2];
             g[u].add(new int[]{v, t});

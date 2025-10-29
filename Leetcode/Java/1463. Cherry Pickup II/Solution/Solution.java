@@ -23,7 +23,7 @@ class Solution {
             for (int j = 0; j < c; ++j) {
                 for (int k = 0; k < c; ++k) {
 
-                    int prevOpt = -1;
+                    int prevOpt = inf;
 
                     for (int x = -1; x < 2; ++x) {
                         for (int y = -1; y < 2; ++y) {
