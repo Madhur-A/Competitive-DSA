@@ -11,7 +11,7 @@ class Solution {
         // -- using prefix and suffix arrays --
         // consider splitting the string at some index `i`, then
         // the mininum cost would be the cost of making all of
-        // the elements at the left `i` eqaual to 0 and likewise
+        // the elements at the left `i` equal to 0 and likewise
         // all the elements at the right of `i` to 1.
 
         // consider `int[] prefix` to be the cost of making all characters left of `i` 0.
