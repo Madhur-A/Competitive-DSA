@@ -1,0 +1,60 @@
+
+
+
+
+#include <bits/stdc++.h>
+
+int _ = [](){ std::cin.tie(nullptr); std::ios_base::sync_with_stdio(false); return 0; }();
+
+using i64 = long long;
+
+struct seg_tree {
+public:
+    int n;
+    std::vector<i64> nums, t;
+public:
+    inline seg_tree(std::vector<i64> const &nums): n(nums.size()), nums(nums), t(4 * n, INT_MAX) {
+        build(0, 0, n - 1);
+    }
+
+    inline void build(int node, int start, int finish) {
+        if(start == finish) {
+            t[node] = nums[start];
+        } else {
+            int const mid = start + ((finish - start) >> 1);
+            build(2*node + 1, start, mid);
+            build(2*node + 2, mid + 1, finish);
+            t[node] = std::min(t[2*node + 1], t[2*node + 2]);
+        }
+    }
+
+    inline i64 range_min(int left, int right) {
+        return range_min(0, 0, n - 1, left, right);
+    }
+
+    inline i64 range_min(int node, int start, int finish, int left, int right) {
+        if(start > right or finish < left) { return INT_MAX; }
+        if(left <= start and finish <= right) { return t[node]; }
+        int const mid = start + ((finish - start) >> 1);
+        return std::min(range_min(2*node + 1, start, mid, left, right),
+                        range_min(2*node + 2, mid + 1, finish, left, right));
+    }
+};
+
+
+int main() {
+    int n = 0, q = 0;
+    std::cin >> n >> q;
+    std::vector<i64> nums(n);
+    int num = 0, i = 0;
+    while(n--) {
+        std::cin >> num;
+        nums[i++] = num;
+    }
+    i64 to = 0, from = 0;
+    seg_tree st(nums);
+    while(q--) {
+        std::cin >> from >> to;
+        std::cout << st.range_min(from - 1, to - 1) << '\n';
+    }
+}
