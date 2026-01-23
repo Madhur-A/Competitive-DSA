@@ -15,16 +15,30 @@ object Solution {
         }.max
     }
 
+    def findLeft(nums: Array[Int], target: Int): Int = { // not failsafe
+        def rx(left: Int, right: Int): Int = left < right match {
+            case false => left
+            case true  => {
+                val mid = left + ((right - left) >> 1)
+                nums(mid) < target match {
+                    case true  => rx(mid + 1, right)
+                    case false => rx(left, mid)
+                }
+            }
+        }
+        rx(0, nums.length)
+    }
+
     // the follwing novelty uses Fenwick; and is by someone whose
     // name i don't know. nevertheless super solution!
     def bestTeamScoreFenwick(scores: Array[Int], ages: Array[Int]): Int = {
         val players = ages.zip(scores).sorted
-        val points  = scores.toSet.toVector.sorted
+        val points  = scores.toSet.toArray.sorted
 
         val fenwick = Array.fill(points.length + 1)(0)
 
         players.foldLeft(0) { case (res, (_, score)) =>
-            val found = points.indexOf(score) + 1
+            val found = findLeft(points, score) + 1 // changed from linear to binary search
             var (i, curr) = (found, 0)
             while (i > 0) {
                 curr = Math.max(curr, fenwick(i))
