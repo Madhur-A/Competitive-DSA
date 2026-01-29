@@ -8,7 +8,7 @@
 #[allow(unused)]
 struct Solution;
 
-// runtime exceeds 1 second (1164 ms)! 
+// runtime exceed a second (1164 ms)! 
 
 impl Solution {
     #[allow(unused)]
