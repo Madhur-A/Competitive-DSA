@@ -2,6 +2,7 @@
 
 
 
+//
 object Submission {
     def maxStudents(seats: Array[Array[Char]]): Int = {
         val (r, c) = (seats.length, seats(0).length)
