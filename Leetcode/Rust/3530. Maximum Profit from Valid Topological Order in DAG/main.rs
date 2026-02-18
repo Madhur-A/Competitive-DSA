@@ -8,6 +8,8 @@
 #[allow(unused)]
 struct Solution;
 
+// takes ~140 ms (100%); though the search space could be further curtailed
+
 impl Solution {
     #[allow(unused)]
     pub fn max_profit(n: i32, edges: Vec<Vec<i32>>, score: Vec<i32>) -> i32 {

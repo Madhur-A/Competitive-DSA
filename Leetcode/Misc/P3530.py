@@ -10,6 +10,7 @@ from functools import lru_cache
 
 class Solution:
     def maxProfit(self, n: int, edges: List[List[int]], score: List[int]) -> int:
+        # takes approximately ~2 seconds
         if edges == []: # TestCase No. 803.
             return sum([(i+1)* _ for i, _ in enumerate(sorted(score))])
         masks = [0] * n
@@ -44,6 +45,7 @@ class Solution:
         return dp[total - 1]
 
     def maxProfitNaive(self, n: int, edges: List[List[int]], score: List[int]) -> int:
+       # takes approximately ~10 seconds
         masks = [0]*n
         for u, v in edges:
             masks[v] |= (1 << u)
