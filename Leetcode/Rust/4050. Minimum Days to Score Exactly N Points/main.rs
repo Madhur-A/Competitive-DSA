@@ -95,5 +95,7 @@ fn main() {
     println!("res: {}", Solution::min_days(2));
     println!("res: {}", Solution::min_days(9));
     println!("res: {}", Solution::min_days(12));
+    println!("res: {}", Solution::min_days(2_000_000));
+    println!("res: {}", Solution::min_days(9_999_999));
     println!(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> compiled successfully!")
 }
