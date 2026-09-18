@@ -20,7 +20,6 @@ impl Solution {
         let   tri = |k: i32| { return (k * (k + 1)).div_euclid(2); }; // summation
         // roots of the quadratic
         let alpha = |k: i32| { return ((8*k + 1).isqrt() - 1).div_euclid(2); };
-        let  beta = |k: i32| ((8*k - 7).isqrt() + 1).div_euclid(2);
 
         fn lower_bound(target: i32, costed: i32) -> i32 {
             if target <= 0 { return 0; }
