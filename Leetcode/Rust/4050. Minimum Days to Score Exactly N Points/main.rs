@@ -27,7 +27,7 @@ impl Solution {
             if costed <= 0 { return i32::MAX; }
             if costed == 1 { return target << 1; }
 
-            let curr = (costed * (costed + 1)).div_euclid(2);
+            let curr = (costed as i64 * (costed + 1) as i64).div_euclid(2) as i32;
             let cost = costed + 1;
 
             let  quotient = target.div_euclid(curr);
@@ -43,10 +43,10 @@ impl Solution {
             let mut cost = 0;
             while curr > 0 {
                 let upper_l = ((8*curr + 1).isqrt() - 1).div_euclid(2);
-                costed = std::cmp::max(costed, upper_l);
+                costed = std::cmp::min(costed, upper_l);
                 if costed <= 0 { return i32::MAX; }
                 cost += costed + 1;
-                curr -= (costed * (costed + 1)).div_euclid(2);
+                curr -= (costed as i64 * (costed + 1) as i64).div_euclid(2) as i32;
             }
 
             return cost;
@@ -58,7 +58,7 @@ impl Solution {
             if costed <= 0 { return i32::MAX; }
 
             let upper_l = ((8*target + 1).isqrt() - 1).div_euclid(2);
-            let costed  = std::cmp::max(costed, upper_l);
+            let costed  = std::cmp::min(costed, upper_l);
             if costed <= 0 { return i32::MAX; }
 
             return fetch(target, costed);
@@ -77,7 +77,7 @@ impl Solution {
             for i in (0..c).rev() {
                 if lower_bound(target, i as i32) >= u_est { break; }
                 let k = i as i32;
-                let tgt = target - (k * (k + 1)).div_euclid(2);
+                let tgt = target - (k as i64 * (k + 1) as i64).div_euclid(2) as i32;
                 if (k + 1) + lower_bound(tgt, k) >= u_est { continue; }
                 let curr = (k + 1) + sling(tgt, k);
                 res = std::cmp::min(res, curr);
